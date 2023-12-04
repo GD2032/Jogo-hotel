@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dej7wvf8f5uov"]
+[gd_scene load_steps=7 format=3 uid="uid://dej7wvf8f5uov"]
 
-[ext_resource type="Texture2D" uid="uid://cyipwsr6bs0ug" path="res://Sprites/background.png" id="1_dvqiy"]
 [ext_resource type="PackedScene" uid="uid://du1himnadtxa2" path="res://Scenes/player.tscn" id="1_tqfpv"]
-[ext_resource type="PackedScene" uid="uid://ss2oa8lggy7u" path="res://Scenes/inimigo.tscn" id="3_gm4sg"]
+[ext_resource type="Texture2D" uid="uid://cyipwsr6bs0ug" path="res://Sprites/New Piskel-1.png (2).png" id="2_unt8q"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_tdf22"]
 size = Vector2(1000, 100)
@@ -11,7 +10,7 @@ size = Vector2(1000, 100)
 size = Vector2(1002, 103)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q7n6b"]
-texture = ExtResource("1_dvqiy")
+texture = ExtResource("2_unt8q")
 0:0/0 = 0
 1:0/0 = 0
 0:1/0 = 0
@@ -39,11 +38,11 @@ position = Vector2(2, 10)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="platform"]
 modulate = Color(0.572549, 0.137255, 0.101961, 1)
-position = Vector2(579, 457)
+position = Vector2(572, 584)
 mesh = SubResource("QuadMesh_tdf22")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platform"]
-position = Vector2(577, 460)
+position = Vector2(577, 450)
 shape = SubResource("RectangleShape2D_sbchg")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
@@ -59,7 +58,4 @@ position = Vector2(574, 339)
 zoom = Vector2(3, 3)
 
 [node name="Player" parent="." instance=ExtResource("1_tqfpv")]
-position = Vector2(499, 397)
-
-[node name="inimigo" parent="." instance=ExtResource("3_gm4sg")]
-position = Vector2(686, 412)
+position = Vector2(568, 392)

@@ -1,7 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bxd06n6stsmwj"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2vkhp"]
-load_path = "res://.godot/imported/New Piskel-1.png.png-ceb76c2929f04f4dc2f2524797c8abfa.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jfmoh"]
 texture = SubResource("CompressedTexture2D_2vkhp")

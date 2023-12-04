@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://ss2oa8lggy7u"]
+
+[ext_resource type="Texture2D" uid="uid://ldkplni8iwub" path="res://Sprites/horror idle.png" id="1_8xsi0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1y8e6"]
+atlas = ExtResource("1_8xsi0")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_535h8"]
+atlas = ExtResource("1_8xsi0")
+region = Rect2(160, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35ywp"]
+atlas = ExtResource("1_8xsi0")
+region = Rect2(320, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqavq"]
+atlas = ExtResource("1_8xsi0")
+region = Rect2(480, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jw3bj"]
+atlas = ExtResource("1_8xsi0")
+region = Rect2(640, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lk15e"]
+atlas = ExtResource("1_8xsi0")
+region = Rect2(800, 0, 160, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g76gj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1y8e6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_535h8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35ywp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqavq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jw3bj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lk15e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="inimigo" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, -81)
+sprite_frames = SubResource("SpriteFrames_g76gj")
+frame_progress = 0.303102

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyipwsr6bs0ug"
-path="res://.godot/imported/New Piskel-1.png (2).png-6694b30870dc0c450769f43d20f87055.ctex"
+uid="uid://i5073rrmxhca"
+path="res://.godot/imported/2d_lights_and_shadows_neutral_point_light.webp-ac175751e1ecf35e0b42673fe10b50ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/New Piskel-1.png (2).png"
-dest_files=["res://.godot/imported/New Piskel-1.png (2).png-6694b30870dc0c450769f43d20f87055.ctex"]
+source_file="res://Sprites/2d_lights_and_shadows_neutral_point_light.webp"
+dest_files=["res://.godot/imported/2d_lights_and_shadows_neutral_point_light.webp-ac175751e1ecf35e0b42673fe10b50ff.ctex"]
 
 [params]
 

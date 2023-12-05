@@ -17,7 +17,8 @@ func _process(delta):
 
 var shake = false
 func _on_timer_timeout():
-	shake = true# Replace with function body.
 	if shake:
-		pass
+		get_tree().change_scene_to_file("res://Scenes/other_world.tscn")
+	shake = true# Replace with function body.
+
 

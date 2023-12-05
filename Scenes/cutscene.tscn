@@ -57,7 +57,7 @@ script = ExtResource("1_jcyhi")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_lorx2")
-frame_progress = 0.14971
+frame_progress = 0.757579
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, 8)

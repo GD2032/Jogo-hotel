@@ -31,7 +31,7 @@ func _process(_delta):
 		ChangeDirection()
 	
 	if enter_elevator and Input.is_action_just_pressed("ui_interact"):
-		print("Funciona")
+		get_tree().change_scene_to_file("res://Scenes/cutscene.tscn")
 	
 	
 func _physics_process(delta):

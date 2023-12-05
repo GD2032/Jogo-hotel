@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cyipwsr6bs0ug" path="res://Sprites/background.png" id="1_dvqiy"]
 [ext_resource type="PackedScene" uid="uid://du1himnadtxa2" path="res://Scenes/player.tscn" id="1_tqfpv"]
 [ext_resource type="Script" path="res://Scripts/Area2D.gd" id="3_2ebyx"]
-[ext_resource type="Texture2D" uid="uid://bvl2mellrywmm" path="res://Sprites/elevador2.png.webp" id="3_2t4no"]
+[ext_resource type="Texture2D" uid="uid://drec2xypnhqho" path="res://Sprites/99999999_elevador.webp" id="4_8b3gt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_57t83"]
 texture = ExtResource("1_dvqiy")
@@ -44,7 +44,7 @@ func _process(delta):
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ga04"]
-size = Vector2(142, 80)
+size = Vector2(78, 80)
 
 [node name="World" type="Node2D"]
 position = Vector2(2, 10)
@@ -74,13 +74,13 @@ script = SubResource("GDScript_a837b")
 position = Vector2(1001, 359)
 script = ExtResource("3_2ebyx")
 
-[node name="Elevador2_png" type="Sprite2D" parent="Area2D"]
-position = Vector2(-12, -5)
-scale = Vector2(1.46875, 1.46875)
-texture = ExtResource("3_2t4no")
+[node name="99999999Elevador" type="Sprite2D" parent="Area2D"]
+position = Vector2(-13, -3)
+scale = Vector2(1.39063, 1.39063)
+texture = ExtResource("4_8b3gt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-13, -1)
+position = Vector2(-10, 1)
 shape = SubResource("RectangleShape2D_1ga04")
 
 [connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]

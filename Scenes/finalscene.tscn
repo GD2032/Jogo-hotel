@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://ck0haxoq5x2j6"]
+[gd_scene load_steps=11 format=3 uid="uid://bnin8nneocbxp"]
 
 [ext_resource type="Texture2D" uid="uid://ba2bwo8hdl87p" path="res://Sprites/background-other-dimension.png.png" id="1_eoxd7"]
 [ext_resource type="Texture2D" uid="uid://ccq2ddaoyhs8d" path="res://Sprites/Other_World_Blood.png" id="2_7vu3q"]
 [ext_resource type="Texture2D" uid="uid://clfp2s4i1vdjh" path="res://Sprites/door-2.png2.webp" id="3_fofcj"]
 [ext_resource type="PackedScene" uid="uid://ss2oa8lggy7u" path="res://Scenes/inimigo.tscn" id="4_4gm07"]
 [ext_resource type="PackedScene" uid="uid://du1himnadtxa2" path="res://Scenes/player.tscn" id="5_ph4v0"]
+[ext_resource type="PackedScene" uid="uid://datsqgebwac" path="res://Scenes/luz.tscn" id="6_aph8l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k6pjw"]
 texture = ExtResource("1_eoxd7")
@@ -72,6 +73,9 @@ texture = ExtResource("2_7vu3q")
 sources/0 = SubResource("TileSetAtlasSource_k6pjw")
 sources/1 = SubResource("TileSetAtlasSource_2dtfr")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v32a3"]
+size = Vector2(325, 39)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -84,8 +88,24 @@ position = Vector2(322, 275)
 texture = ExtResource("3_fofcj")
 
 [node name="inimigo" parent="." instance=ExtResource("4_4gm07")]
-position = Vector2(583, 329)
+position = Vector2(586, 336)
 
 [node name="Player" parent="." instance=ExtResource("5_ph4v0")]
 position = Vector2(351, 305)
 scale = Vector2(-1, 1)
+
+[node name="luz" parent="Player" instance=ExtResource("6_aph8l")]
+position = Vector2(-7, 13)
+
+[node name="TimerFim" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.0352941, 0.0352941, 0.0352941, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(478.5, 325.5)
+shape = SubResource("RectangleShape2D_v32a3")
+
+[connection signal="timeout" from="TimerFim" to="Player" method="_on_timer_fim_timeout"]

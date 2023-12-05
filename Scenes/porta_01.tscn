@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://y80u2707nwxb"]
+[gd_scene load_steps=13 format=3 uid="uid://d2oinq2uc11ib"]
 
 [ext_resource type="Texture2D" uid="uid://ba2bwo8hdl87p" path="res://Sprites/background-other-dimension.png.png" id="1_byico"]
 [ext_resource type="Texture2D" uid="uid://ccq2ddaoyhs8d" path="res://Sprites/Other_World_Blood.png" id="2_ri4dl"]
 [ext_resource type="Texture2D" uid="uid://clfp2s4i1vdjh" path="res://Sprites/door-2.png2.webp" id="3_emdvs"]
 [ext_resource type="Texture2D" uid="uid://dpwofomwowb8t" path="res://Sprites/pixelart_skull.png" id="4_a451b"]
 [ext_resource type="PackedScene" uid="uid://du1himnadtxa2" path="res://Scenes/player.tscn" id="5_8wosm"]
+[ext_resource type="PackedScene" uid="uid://datsqgebwac" path="res://Scenes/luz.tscn" id="6_7spk7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4pii8"]
 texture = ExtResource("1_byico")
@@ -91,6 +92,9 @@ sources/2 = SubResource("TileSetAtlasSource_bwn4d")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_msq70"]
 size = Vector2(528.5, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kf25"]
+size = Vector2(44, 60)
+
 [node name="Porta01" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -151,10 +155,26 @@ texture = ExtResource("4_a451b")
 position = Vector2(212, 352)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(57, -21)
 zoom = Vector2(3, 3)
+
+[node name="luz" parent="Player" instance=ExtResource("6_7spk7")]
+visible = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(423.75, 362)
+position = Vector2(429, 364)
 shape = SubResource("RectangleShape2D_msq70")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.160784, 0.160784, 0.160784, 1)
+
+[node name="saida" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="saida"]
+position = Vector2(213, 324)
+shape = SubResource("RectangleShape2D_2kf25")
+
+[connection signal="body_entered" from="saida" to="Player" method="_on_saida_body_entered"]
+[connection signal="body_exited" from="saida" to="Player" method="_on_saida_body_exited"]

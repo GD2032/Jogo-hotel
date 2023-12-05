@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://vucrt83m048j"]
+
+[node name="final" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 223.0
+offset_top = 141.0
+offset_right = 895.0
+offset_bottom = 513.0
+
+[node name="Panel" type="Panel" parent="Control"]
+modulate = Color(0.960784, 0.960784, 0.960784, 1)
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 142.0
+offset_top = -17.0
+offset_right = 601.0
+offset_bottom = 351.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 159.0
+offset_top = 214.0
+offset_right = 270.0
+offset_bottom = 247.0
+text = "Fim da Demo
+"

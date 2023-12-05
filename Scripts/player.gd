@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 80.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 50.0
 var flag = false
 var lanterna = false
 var estado_lanterna = false
@@ -48,11 +47,14 @@ func _process(_delta):
 	if flag and !enter_note:
 		$"../Nota1Collider/Control".hide()
 		
-	
+	if saida_porta and Input.is_action_just_pressed("ui_interact"):
+		get_tree().change_scene_to_file("res://Scenes/other_world.tscn")
 
-	
+	if portaboss and Input.is_action_just_pressed("ui_interact"):
+		get_tree().change_scene_to_file("res://Scenes/finalscene.tscn")
 		
-		
+	if porta1 and Input.is_action_just_pressed("ui_interact"):
+		get_tree().change_scene_to_file("res://Scenes/porta_01.tscn")
 	if lanterna:
 		if Input.is_action_just_pressed("ligar"):
 			estado_lanterna = !estado_lanterna
@@ -95,3 +97,35 @@ func _on_nota_1_collider_body_entered(body):
 
 func _on_nota_1_collider_body_exited(body):
 	enter_note = false
+
+
+func _on_timer_fim_timeout():
+	get_tree().change_scene_to_file("res://Scenes/final.tscn") # Replace with function body.
+
+
+var saida_porta = false
+
+func _on_saida_body_entered(body):
+	saida_porta = true # Replace with function body.
+
+
+func _on_saida_body_exited(body):
+	saida_porta = false# Replace with function body.
+
+var portaboss = false
+
+func _on_porta_boss_body_entered(body):
+	portaboss = true # Replace with function body.
+
+
+func _on_porta_boss_body_exited(body):
+	portaboss = false # Replace with function body.
+
+var porta1 = false
+
+func _on_porta_body_entered(body):
+	porta1 = true # Replace with function body.
+
+
+func _on_porta_body_exited(body):
+	porta1 = false # Replace with function body.

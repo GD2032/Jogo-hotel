@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://yqxgem4p34ix"]
+[gd_scene load_steps=19 format=3 uid="uid://yqxgem4p34ix"]
 
 [ext_resource type="Texture2D" uid="uid://ba2bwo8hdl87p" path="res://Sprites/background-other-dimension.png.png" id="1_wgbdo"]
 [ext_resource type="Texture2D" uid="uid://clfp2s4i1vdjh" path="res://Sprites/door-2.png2.webp" id="2_buhjs"]
@@ -102,6 +102,12 @@ size = Vector2(7.14687, 7.01833)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hcm5q"]
 size = Vector2(32.25, 13)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nwi02"]
+size = Vector2(38, 57.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxsxp"]
+size = Vector2(38, 64)
+
 [node name="Other_World" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -131,6 +137,7 @@ texture = ExtResource("2_buhjs")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ljff8")
+autoplay = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -208,7 +215,23 @@ texture = ExtResource("6_w8lb5")
 position = Vector2(297, 417)
 shape = SubResource("RectangleShape2D_hcm5q")
 
+[node name="porta" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="porta"]
+position = Vector2(515, 380)
+shape = SubResource("RectangleShape2D_nwi02")
+
+[node name="portaBoss" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="portaBoss"]
+position = Vector2(1039, 380)
+shape = SubResource("RectangleShape2D_cxsxp")
+
 [connection signal="body_entered" from="Nota1Collider" to="Player" method="_on_nota_1_collider_body_entered"]
 [connection signal="body_exited" from="Nota1Collider" to="Player" method="_on_nota_1_collider_body_exited"]
 [connection signal="body_entered" from="LanternaCollider" to="Player" method="_on_lanterna_collider_body_entered"]
 [connection signal="body_exited" from="LanternaCollider" to="Player" method="_on_lanterna_collider_body_exited"]
+[connection signal="body_entered" from="porta" to="Player" method="_on_porta_body_entered"]
+[connection signal="body_exited" from="porta" to="Player" method="_on_porta_body_exited"]
+[connection signal="body_entered" from="portaBoss" to="Player" method="_on_porta_boss_body_entered"]
+[connection signal="body_exited" from="portaBoss" to="Player" method="_on_porta_boss_body_exited"]

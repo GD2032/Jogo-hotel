@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://yqxgem4p34ix"]
+[gd_scene load_steps=17 format=3 uid="uid://yqxgem4p34ix"]
 
 [ext_resource type="Texture2D" uid="uid://ba2bwo8hdl87p" path="res://Sprites/background-other-dimension.png.png" id="1_wgbdo"]
 [ext_resource type="Texture2D" uid="uid://clfp2s4i1vdjh" path="res://Sprites/door-2.png2.webp" id="2_buhjs"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://du1himnadtxa2" path="res://Scenes/player.tscn" id="4_klfkw"]
 [ext_resource type="Texture2D" uid="uid://dpk7jytm311n2" path="res://Sprites/flashlight_01.png" id="6_w8lb5"]
 [ext_resource type="Texture2D" uid="uid://bi5m3x110iigo" path="res://Sprites/papernote.png" id="7_xd1vb"]
+[ext_resource type="FontFile" uid="uid://ryvfb753sqhu" path="res://Silver.ttf" id="8_0byxr"]
 [ext_resource type="PackedScene" uid="uid://datsqgebwac" path="res://Scenes/luz.tscn" id="8_l52xi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_twdgm"]
@@ -166,8 +167,35 @@ texture = ExtResource("7_xd1vb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Nota1Collider"]
 position = Vector2(-132.373, -12.693)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_pekyw")
+
+[node name="Control" type="Control" parent="Nota1Collider"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="Nota1Collider/Control"]
+layout_mode = 0
+offset_left = -140.141
+offset_top = -70.7539
+offset_right = -100.141
+offset_bottom = -30.7539
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Nota1Collider/Control/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.902
+offset_left = -0.310734
+offset_top = 5.10426
+offset_right = -0.310734
+offset_bottom = 9.02425
+theme_override_fonts/normal_font = ExtResource("8_0byxr")
+theme_override_font_sizes/normal_font_size = 15
+text = "Teria um texto aqui. 
+Evite a escuridão a todo custo"
 
 [node name="LanternaCollider" type="Area2D" parent="."]
 

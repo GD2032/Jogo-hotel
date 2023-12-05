@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 80.0
 const JUMP_VELOCITY = -400.0
-
+var flag = false
 var lanterna = false
 var estado_lanterna = false
 @onready var luz = $luz
@@ -41,7 +41,18 @@ func _process(_delta):
 	if enter_lanterna and Input.is_action_just_pressed("ui_interact"):
 		lanterna = true
 		luz.show()
+	if enter_note and Input.is_action_just_pressed("ui_interact"):
+		$"../Nota1Collider/Control".show()
+		flag = true
+		
+	if flag and !enter_note:
+		$"../Nota1Collider/Control".hide()
+		
 	
+
+	
+		
+		
 	if lanterna:
 		if Input.is_action_just_pressed("ligar"):
 			estado_lanterna = !estado_lanterna
@@ -78,9 +89,9 @@ func _on_lanterna_collider_body_exited(body):
 	enter_lanterna = false
 
 
+var enter_note = false
 func _on_nota_1_collider_body_entered(body):
-	pass # Replace with function body.
-
+	enter_note = true
 
 func _on_nota_1_collider_body_exited(body):
-	pass # Replace with function body.
+	enter_note = false

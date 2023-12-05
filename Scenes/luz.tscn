@@ -1,3 +1,15 @@
-[gd_scene format=3 uid="uid://datsqgebwac"]
+[gd_scene load_steps=2 format=3 uid="uid://datsqgebwac"]
+
+[ext_resource type="Texture2D" uid="uid://i5073rrmxhca" path="res://Sprites/2d_lights_and_shadows_neutral_point_light.webp" id="1_7w6rq"]
 
 [node name="luz" type="Node2D"]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(1, -33)
+scale = Vector2(0.192233, 0.260933)
+texture = ExtResource("1_7w6rq")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(-84, -37)
+scale = Vector2(0.988282, 0.404297)
+texture = ExtResource("1_7w6rq")

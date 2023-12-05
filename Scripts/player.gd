@@ -22,6 +22,7 @@ func _process(_delta):
 	elif Input.is_action_just_pressed("left") and scale.x < 0:
 		scale = Vector2(-x, scale.y) 
 		print(x)
+		
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():

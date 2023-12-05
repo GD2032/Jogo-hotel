@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://cvswrgna4dab3"]
+
+[ext_resource type="Texture2D" uid="uid://b6v1xsaeyyk2f" path="res://Sprites/elevadorFinal1.webp" id="1_0ap0y"]
+[ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="1_jcyhi"]
+[ext_resource type="Texture2D" uid="uid://v700vit1wmq3" path="res://Sprites/ElevadorFinal2.webp" id="2_ps7n3"]
+[ext_resource type="Texture2D" uid="uid://bqiws2u7365ek" path="res://Sprites/New Piskel (2).png" id="4_ljytk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lorx2"]
+animations = [{
+"frames": [{
+"duration": 4.0,
+"texture": ExtResource("1_0ap0y")
+}, {
+"duration": 0.5,
+"texture": ExtResource("2_ps7n3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4dca"]
+atlas = ExtResource("4_ljytk")
+region = Rect2(0, 28, 17, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4hko"]
+atlas = ExtResource("4_ljytk")
+region = Rect2(0, 0, 17, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6gtg"]
+atlas = ExtResource("4_ljytk")
+region = Rect2(0, 56, 17, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q07bx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4dca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4hko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6gtg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="cutscene" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+script = ExtResource("1_jcyhi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -3)
+sprite_frames = SubResource("SpriteFrames_lorx2")
+frame_progress = 0.14971
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, 8)
+sprite_frames = SubResource("SpriteFrames_q07bx")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="Camera2D" method="_on_timer_timeout"]

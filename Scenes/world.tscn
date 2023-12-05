@@ -27,8 +27,8 @@ texture = ExtResource("1_dvqiy")
 [sub_resource type="TileSet" id="TileSet_nvigc"]
 sources/0 = SubResource("TileSetAtlasSource_57t83")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbchg"]
-size = Vector2(1070, 27.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gntul"]
+size = Vector2(846, 20.75)
 
 [sub_resource type="GDScript" id="GDScript_a837b"]
 script/source = "extends Camera2D
@@ -57,8 +57,8 @@ layer_0/tile_data = PackedInt32Array(1114136, 0, 0, 1179672, 0, 1, 1245208, 0, 2
 [node name="platform" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platform"]
-position = Vector2(594, 411.25)
-shape = SubResource("RectangleShape2D_sbchg")
+position = Vector2(724, 411.625)
+shape = SubResource("RectangleShape2D_gntul")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="Player" parent="." instance=ExtResource("1_tqfpv")]

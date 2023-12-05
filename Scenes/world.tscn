@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dej7wvf8f5uov"]
+[gd_scene load_steps=10 format=3 uid="uid://dej7wvf8f5uov"]
 
 [ext_resource type="Texture2D" uid="uid://cyipwsr6bs0ug" path="res://Sprites/background.png" id="1_dvqiy"]
 [ext_resource type="PackedScene" uid="uid://du1himnadtxa2" path="res://Scenes/player.tscn" id="1_tqfpv"]
+[ext_resource type="Texture2D" uid="uid://bvl2mellrywmm" path="res://Sprites/elevador2.png.webp" id="3_2t4no"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_57t83"]
 texture = ExtResource("1_dvqiy")
@@ -29,7 +30,23 @@ sources/0 = SubResource("TileSetAtlasSource_57t83")
 size = Vector2(1000, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbchg"]
-size = Vector2(1002, 103)
+size = Vector2(1070, 103)
+
+[sub_resource type="GDScript" id="GDScript_a837b"]
+script/source = "xtends Camera2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+			pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ga04"]
+size = Vector2(142, 80)
 
 [node name="World" type="Node2D"]
 position = Vector2(2, 10)
@@ -47,13 +64,27 @@ position = Vector2(579, 457)
 mesh = SubResource("QuadMesh_tdf22")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platform"]
-position = Vector2(556, 452)
+position = Vector2(590, 452)
 shape = SubResource("RectangleShape2D_sbchg")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(574, 339)
-zoom = Vector2(3, 3)
-
 [node name="Player" parent="." instance=ExtResource("1_tqfpv")]
-position = Vector2(516, 367)
+position = Vector2(473, 399)
+scale = Vector2(-1, 1)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-76, -46)
+zoom = Vector2(3, 3)
+script = SubResource("GDScript_a837b")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1001, 359)
+
+[node name="Elevador2_png" type="Sprite2D" parent="Area2D"]
+position = Vector2(-12, -5)
+scale = Vector2(1.46875, 1.46875)
+texture = ExtResource("3_2t4no")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-13, -1)
+shape = SubResource("RectangleShape2D_1ga04")

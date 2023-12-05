@@ -104,7 +104,9 @@ autostart = true
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.0352941, 0.0352941, 0.0352941, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(478.5, 325.5)
 shape = SubResource("RectangleShape2D_v32a3")
 

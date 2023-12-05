@@ -30,7 +30,8 @@ func _process(_delta):
 	elif Input.is_action_just_pressed("left") and Direction == "Right":
 		ChangeDirection()
 	
-	
+	if enter_elevator and Input.is_action_just_pressed("ui_interact"):
+		print("Funciona")
 	
 	
 func _physics_process(delta):
@@ -44,3 +45,11 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
+
+var enter_elevator = false
+
+func _on_area_2d_body_entered(body):
+	enter_elevator = true
+
+func _on_area_2d_body_exited(body):
+	enter_elevator = false 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://chs6aey1weulc"]
+[gd_scene load_steps=16 format=3 uid="uid://yqxgem4p34ix"]
 
 [ext_resource type="Texture2D" uid="uid://ba2bwo8hdl87p" path="res://Sprites/background-other-dimension.png.png" id="1_wgbdo"]
 [ext_resource type="Texture2D" uid="uid://clfp2s4i1vdjh" path="res://Sprites/door-2.png2.webp" id="2_buhjs"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://du1himnadtxa2" path="res://Scenes/player.tscn" id="4_klfkw"]
 [ext_resource type="Texture2D" uid="uid://dpk7jytm311n2" path="res://Sprites/flashlight_01.png" id="6_w8lb5"]
 [ext_resource type="Texture2D" uid="uid://bi5m3x110iigo" path="res://Sprites/papernote.png" id="7_xd1vb"]
+[ext_resource type="PackedScene" uid="uid://datsqgebwac" path="res://Scenes/luz.tscn" id="8_l52xi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_twdgm"]
 texture = ExtResource("1_wgbdo")
@@ -94,6 +95,12 @@ sources/2 = SubResource("TileSetAtlasSource_svmwc")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fat06"]
 size = Vector2(318.191, 23.1042)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pekyw"]
+size = Vector2(7.14687, 7.01833)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hcm5q"]
+size = Vector2(32.25, 13)
+
 [node name="Other_World" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -133,16 +140,43 @@ shape = SubResource("RectangleShape2D_fat06")
 
 [node name="Player" parent="." instance=ExtResource("4_klfkw")]
 position = Vector2(342, 421)
+scale = Vector2(-1, 1)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-1, -46)
 zoom = Vector2(3, 3)
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.305882, 0.305882, 0.305882, 1)
+
+[node name="Nota1Collider" type="Area2D" parent="."]
+position = Vector2(624, 433.894)
+scale = Vector2(3.21819, 1.56732)
+
+[node name="Nota1" type="Sprite2D" parent="Nota1Collider"]
+position = Vector2(-132.091, -11.4769)
+scale = Vector2(0.00319854, 0.00656758)
+texture = ExtResource("7_xd1vb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nota1Collider"]
+position = Vector2(-132.373, -12.693)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_pekyw")
+
+[node name="LanternaCollider" type="Area2D" parent="."]
+
+[node name="Lanterna" type="Sprite2D" parent="LanternaCollider"]
 position = Vector2(296, 420)
 scale = Vector2(0.296875, 0.296875)
 texture = ExtResource("6_w8lb5")
 
-[node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(198.906, 415.906)
-scale = Vector2(0.0102935, 0.0102935)
-texture = ExtResource("7_xd1vb")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LanternaCollider"]
+position = Vector2(297, 417)
+shape = SubResource("RectangleShape2D_hcm5q")
+
+[node name="luz" parent="." instance=ExtResource("8_l52xi")]
+visible = false
+position = Vector2(339, 436)
+
+[connection signal="body_entered" from="LanternaCollider" to="Player" method="_on_lanterna_collider_body_entered"]
+[connection signal="body_exited" from="LanternaCollider" to="Player" method="_on_lanterna_collider_body_exited"]

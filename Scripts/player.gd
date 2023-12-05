@@ -3,6 +3,9 @@ extends CharacterBody2D
 const SPEED = 80.0
 const JUMP_VELOCITY = -400.0
 
+var lanterna = false
+var estado_lanterna = false
+@onready var luz = $"../luz"
 # Get Player Scale on X axis
 var x = scale.x
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -33,7 +36,17 @@ func _process(_delta):
 	if enter_elevator and Input.is_action_just_pressed("ui_interact"):
 		get_tree().change_scene_to_file("res://Scenes/cutscene.tscn")
 	
+	if enter_lanterna and Input.is_action_just_pressed("ui_interact"):
+		lanterna = true
+		luz.hide(true)
 	
+	if lanterna:
+		if Input.is_action_just_pressed("ligar"):
+			estado_lanterna = !estado_lanterna
+		if estado_lanterna:
+			luz.hide(true)
+		else:
+			luz.hide(false)
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -53,3 +66,19 @@ func _on_area_2d_body_entered(body):
 
 func _on_area_2d_body_exited(body):
 	enter_elevator = false 
+
+var enter_lanterna = false
+
+func _on_lanterna_collider_body_entered(body):
+	enter_lanterna = true
+
+func _on_lanterna_collider_body_exited(body):
+	enter_lanterna = false
+
+
+func _on_nota_1_collider_body_entered(body):
+	pass # Replace with function body.
+
+
+func _on_nota_1_collider_body_exited(body):
+	pass # Replace with function body.

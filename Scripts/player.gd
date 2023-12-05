@@ -5,7 +5,7 @@ const JUMP_VELOCITY = -400.0
 
 var lanterna = false
 var estado_lanterna = false
-@onready var luz = $"../luz"
+@onready var luz = $luz
 # Get Player Scale on X axis
 var x = scale.x
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -17,9 +17,11 @@ var Direction = "Right"
 func ChangeDirection():
 	if Direction == "Left":
 		get_node( "AnimatedSprite2D" ).set_flip_h( false )
+		luz.scale = Vector2(-1,-1)
 		Direction = "Right"
 	elif Direction == "Right":
 		get_node( "AnimatedSprite2D" ).set_flip_h( true )
+		luz.scale = Vector2(1, -1)
 		Direction = "Left"
 		
 func _process(_delta):
@@ -38,15 +40,15 @@ func _process(_delta):
 	
 	if enter_lanterna and Input.is_action_just_pressed("ui_interact"):
 		lanterna = true
-		luz.hide(true)
+		luz.show()
 	
 	if lanterna:
 		if Input.is_action_just_pressed("ligar"):
 			estado_lanterna = !estado_lanterna
 		if estado_lanterna:
-			luz.hide(true)
+			luz.show()
 		else:
-			luz.hide(false)
+			luz.hide()
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():

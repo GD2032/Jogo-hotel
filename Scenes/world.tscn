@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dej7wvf8f5uov"]
+[gd_scene load_steps=11 format=3 uid="uid://dej7wvf8f5uov"]
 
 [ext_resource type="Texture2D" uid="uid://cyipwsr6bs0ug" path="res://Sprites/background.png" id="1_dvqiy"]
 [ext_resource type="PackedScene" uid="uid://du1himnadtxa2" path="res://Scenes/player.tscn" id="1_tqfpv"]
 [ext_resource type="Script" path="res://Scripts/Area2D.gd" id="3_2ebyx"]
+[ext_resource type="PackedScene" uid="uid://datsqgebwac" path="res://Scenes/luz.tscn" id="3_2he5o"]
 [ext_resource type="Texture2D" uid="uid://drec2xypnhqho" path="res://Sprites/99999999_elevador.webp" id="4_8b3gt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_57t83"]
@@ -64,6 +65,11 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 [node name="Player" parent="." instance=ExtResource("1_tqfpv")]
 position = Vector2(475, 397)
 scale = Vector2(-1, 1)
+
+[node name="luz" parent="Player" instance=ExtResource("3_2he5o")]
+position = Vector2(475, -397)
+rotation = 3.14159
+scale = Vector2(1, -1)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-76, -46)
